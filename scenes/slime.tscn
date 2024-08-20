@@ -58,3 +58,9 @@ frame_progress = 0.125794
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Killzone"]
 position = Vector2(0, -1)
 shape = SubResource("RectangleShape2D_0iwgp")
+
+[node name="RayCastRight" type="RayCast2D" parent="."]
+target_position = Vector2(10, 0)
+
+[node name="RayCastLeft" type="RayCast2D" parent="."]
+target_position = Vector2(-10, 0)

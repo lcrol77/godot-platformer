@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://5exyylk6xqet"]
+[gd_scene load_steps=16 format=3 uid="uid://5exyylk6xqet"]
 
 [ext_resource type="PackedScene" uid="uid://ywjbtsngsg4a" path="res://scenes/player.tscn" id="1_0y8jn"]
 [ext_resource type="Texture2D" uid="uid://ust2fmlesyy3" path="res://assets/sprites/world_tileset.png" id="2_bn7df"]
@@ -6,6 +6,9 @@
 [ext_resource type="PackedScene" uid="uid://ci7ji57eh74wo" path="res://scenes/coin.tscn" id="4_b122q"]
 [ext_resource type="PackedScene" uid="uid://bkrxsw1ktc384" path="res://scenes/killzone.tscn" id="5_t5jtx"]
 [ext_resource type="PackedScene" uid="uid://c4udbqhrbenu7" path="res://scenes/slime.tscn" id="6_ouxnf"]
+[ext_resource type="FontFile" uid="uid://btnsyyomknbxt" path="res://assets/fonts/PixelOperator8.ttf" id="7_aqdup"]
+[ext_resource type="Script" path="res://scripts/game_manager.gd" id="8_qrkjb"]
+[ext_resource type="FontFile" uid="uid://bbpa2utnvpoqr" path="res://assets/fonts/PixelOperator8-Bold.ttf" id="9_3ak4o"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_vo8iq"]
 texture = ExtResource("2_bn7df")
@@ -287,3 +290,29 @@ autoplay = "move"
 
 [node name="Slime" parent="." instance=ExtResource("6_ouxnf")]
 position = Vector2(616, 74)
+
+[node name="Label" type="Label" parent="."]
+offset_left = -12.0
+offset_top = 20.0
+offset_right = 97.0
+offset_bottom = 43.0
+theme_override_fonts/font = ExtResource("7_aqdup")
+theme_override_font_sizes/font_size = 8
+text = "space to jump"
+
+[node name="GameManager" type="Node" parent="."]
+unique_name_in_owner = true
+script = ExtResource("8_qrkjb")
+
+[node name="ScoreLabel" type="Label" parent="GameManager"]
+offset_left = 666.0
+offset_top = -141.0
+offset_right = 775.0
+offset_bottom = -104.0
+theme_override_colors/font_color = Color(0.2, 0.2, 0.2, 1)
+theme_override_fonts/font = ExtResource("9_3ak4o")
+theme_override_font_sizes/font_size = 8
+text = "
+you collected x coins."
+horizontal_alignment = 1
+autowrap_mode = 2
